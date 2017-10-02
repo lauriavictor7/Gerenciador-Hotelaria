@@ -6,13 +6,18 @@
 package basicas;
 
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
  * @author lauriavictor
  */
+
+@Entity
 public class Hospede {
     
+    @Id
     private String cpf;
     private String nome;
     private String fone;
