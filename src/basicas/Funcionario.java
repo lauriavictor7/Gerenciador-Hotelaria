@@ -12,6 +12,7 @@ package basicas;
 public class Funcionario extends Pessoa {
     
     private double salario;
+    private String cargo;
     private Endereco endereco;
 
     public double getSalario() {
@@ -28,5 +29,13 @@ public class Funcionario extends Pessoa {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 }

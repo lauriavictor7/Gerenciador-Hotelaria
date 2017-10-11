@@ -9,7 +9,7 @@ package basicas;
  *
  * @author lauriavictor
  */
-public class Pessoa {
+public abstract class Pessoa {
     
     private int id;
     private String dataNasc;

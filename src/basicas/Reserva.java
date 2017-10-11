@@ -6,6 +6,7 @@
 package basicas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -20,7 +21,7 @@ public class Reserva {
     private Quarto quarto;
     private Ocupacao ocupacao;
     private Situacao situacao;
-    private ArrayList<Servico> servico;
+    private List<Servico> servico;
     
     public Reserva () {
         this.hospede = new Hospede();
@@ -86,11 +87,11 @@ public class Reserva {
         this.situacao = situacao;
     }
 
-    public ArrayList<Servico> getServico() {
+    public List<Servico> getServico() {
         return servico;
     }
 
-    public void setServico(ArrayList<Servico> servico) {
+    public void setServico(List<Servico> servico) {
         this.servico = servico;
     }
 }

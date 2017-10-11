@@ -14,7 +14,7 @@ public class Quarto {
     private int num;
     private String descricao;
     private int andar;
-    private float preco;
+    private double preco;
 
     public int getNum() {
         return num;
@@ -40,11 +40,11 @@ public class Quarto {
         this.andar = andar;
     }
 
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }   
 }

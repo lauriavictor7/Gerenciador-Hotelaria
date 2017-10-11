@@ -13,7 +13,7 @@ public class Servico {
     
     private int cod;
     private String desc;
-    private float valor;
+    private double valor;
 
     public int getCod() {
         return cod;
@@ -31,11 +31,11 @@ public class Servico {
         this.desc = desc;
     }
 
-    public float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
     

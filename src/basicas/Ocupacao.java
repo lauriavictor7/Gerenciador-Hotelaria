@@ -6,6 +6,7 @@
 package basicas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,7 +22,7 @@ public class Ocupacao {
     private float valorDiaria;
     private Quarto quarto;
     private Hospede hospede;
-    private ArrayList<Servico> servico;
+    private List<Servico> servico;
     
     public Ocupacao () {
         this.hospede = new Hospede();
@@ -93,11 +94,11 @@ public class Ocupacao {
         this.hospede = hospede;
     }
 
-    public ArrayList<Servico> getServico() {
+    public List<Servico> getServico() {
         return servico;
     }
 
-    public void setServico(ArrayList<Servico> servico) {
+    public void setServico(List<Servico> servico) {
         this.servico = servico;
     }       
 }

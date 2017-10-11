@@ -5,9 +5,7 @@
  */
 package basicas;
 
-import java.util.ArrayList;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.List;
 
 /**
  *
@@ -17,13 +15,13 @@ import javax.persistence.Id;
 
 public class Hospede extends Pessoa {
     
-    private ArrayList<Hospede> detalhes;
+    private List<Hospede> detalhes;
 
-    public ArrayList<Hospede> getDetalhes() {
+    public List<Hospede> getDetalhes() {
         return detalhes;
     }
 
-    public void setDetalhes(ArrayList<Hospede> detalhes) {
+    public void setDetalhes(List<Hospede> detalhes) {
         this.detalhes = detalhes;
-    }   
+    }
 }
