@@ -20,14 +20,14 @@ public class Reserva {
     private Hospede hospede;
     private Quarto quarto;
     private Ocupacao ocupacao;
-    private Situacao situacao;
+    private Estado situacao;
     private List<Servico> servico;
     
     public Reserva () {
         this.hospede = new Hospede();
         this.quarto = new Quarto();
         this.ocupacao = new Ocupacao();
-        this.situacao = new Situacao();
+        this.situacao = new Estado();
         this.servico = new ArrayList<>();
     }
 
@@ -79,11 +79,11 @@ public class Reserva {
         this.ocupacao = ocupacao;
     }    
 
-    public Situacao getSituacao() {
+    public Estado getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(Situacao situacao) {
+    public void setSituacao(Estado situacao) {
         this.situacao = situacao;
     }
 

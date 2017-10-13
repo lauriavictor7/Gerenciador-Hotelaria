@@ -9,7 +9,7 @@ package basicas;
  *
  * @author lauriavictor
  */
-public class Situacao {
+public class Estado {
     
     private int cod;
     private String desc;
