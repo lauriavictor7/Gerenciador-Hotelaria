@@ -35,7 +35,7 @@ public class DadosReserva implements IDadosReserva {
     }
 
     @Override
-    public Reserva pesquisarReserva(Reserva cod) throws Exception {
+    public Reserva pesquisarReserva(int cod) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

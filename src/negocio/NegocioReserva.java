@@ -5,6 +5,7 @@
  */
 package negocio;
 
+import basicas.Ocupacao;
 import basicas.Reserva;
 import dados.DadosReserva;
 import java.util.List;
@@ -15,29 +16,87 @@ import java.util.List;
  */
 public class NegocioReserva {
     
+    private void validarCadastrarReserva(Reserva r) throws Exception {
+        if(r.getHospede().getCpf().trim().length() < 14) {
+            throw new Exception("Por favor, informe o CPF.");
+        }
+        
+        if(r.getPeriodo() < 0) {
+            throw new Exception("Por favor, informe o PERÍODO.");
+        }
+        
+        if(r.getDt().equals("  /  /    ")) {
+            throw new Exception("Por favor, informe a DATA.");
+        }
+        
+        if(r.getQuarto().getNum() <= 0) {
+            throw new Exception("Por favor, informe o QUARTO.");
+        }
+        
+        Fachada f = new Fachada();
+        Ocupacao o = new Ocupacao();
+        
+        o.setId(r.getOcupacao().getId());
+        o = f.pesquisarOcupacao(o);
+        
+        if(o.getHospede().getCpf() == null) {
+            throw new Exception("Ocupação não cadastrada!");
+        }
+    }
+    
+    private void validarAtualizarReserva(Reserva r) throws Exception {
+        if(r.getPeriodo() < 0) {
+            throw new Exception("Por favor, informe o PERÍODO.");
+        }
+        
+        if(r.getDt().equals("  /  /    ")) {
+            throw new Exception("Por favor, informe a DATA.");
+        }
+        
+        if(r.getQuarto().getNum() <= 0) {
+            throw new Exception("Por favor, informe o QUARTO.");
+        }        
+    }
+    
+    private void validarRemoverReserva(Reserva r) throws Exception {
+        if (r.getCod() <= 0) {
+            throw new Exception("Reserva não encontrada.");
+        }
+    }
+    
+    private void validarPesquisarReserva(int cod) throws Exception {
+        if (cod <= 0) {
+            throw new Exception("Reserva não encontrada.");
+        }
+    }
     private final DadosReserva iDR;
     
     public NegocioReserva () {
         this.iDR = new DadosReserva();
     }
     
-    public void cadastrarReserva(Reserva r) {
-        throw new UnsupportedOperationException("");
+    public void cadastrarReserva(Reserva r) throws Exception {
+        validarCadastrarReserva(r);
+        iDR.cadastrarReserva(r);
     }
     
-    public void atualizarReserva(Reserva r) {
-        throw new UnsupportedOperationException("");
+    public void atualizarReserva(Reserva r) throws Exception {
+        validarAtualizarReserva(r);
+        iDR.atualizarReserva(r);
     }
     
-    public void removerReserva(Reserva r) {
-        throw new UnsupportedOperationException("");
+    public void removerReserva(Reserva r) throws Exception {
+        validarRemoverReserva(r);
+        iDR.removerReserva(r);
     }
     
-    public List<Reserva> listarReserva(Reserva filtro) {
-        throw new UnsupportedOperationException("");
+    public List<Reserva> listarReserva(Reserva filtro) throws Exception {
+        return iDR.listarReserva(filtro);
     }
     
-    public Reserva pesquisarReserva(Reserva cod) {
-        throw new UnsupportedOperationException("");
+    public Reserva pesquisarReserva(int cod) throws Exception {
+        validarPesquisarReserva(cod);
+        Reserva r = iDR.pesquisarReserva(cod);
+        return r;
     }
 }

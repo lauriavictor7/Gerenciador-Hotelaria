@@ -117,7 +117,7 @@ public class Fachada implements IDadosHospede, IDadosFuncionario, IDadosReserva,
     }
 
     @Override
-    public Reserva pesquisarReserva(Reserva cod) throws Exception {
+    public Reserva pesquisarReserva(int cod) throws Exception {
         return this.nr.pesquisarReserva(cod);
     }
 

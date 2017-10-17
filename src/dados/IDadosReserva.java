@@ -18,5 +18,5 @@ public interface IDadosReserva {
     void atualizarReserva(Reserva r) throws Exception;
     void removerReserva(Reserva r) throws Exception;
     List<Reserva> listarReserva(Reserva filtro) throws Exception;
-    Reserva pesquisarReserva(Reserva cod) throws Exception;
+    Reserva pesquisarReserva(int cod) throws Exception;
 }

@@ -15,6 +15,7 @@ public abstract class Pessoa {
     private String dataNasc;
     private String nome;
     private String sexo;
+    private String cpf;
 
     public int getId() {
         return id;
@@ -46,6 +47,14 @@ public abstract class Pessoa {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
     
 }

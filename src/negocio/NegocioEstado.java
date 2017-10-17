@@ -15,17 +15,28 @@ import java.util.List;
  */
 public class NegocioEstado {
     
+    private void validarAtualizarEstado(Estado e) throws Exception {
+        if(e.getCod() <= 0) {
+            throw new Exception("Informe um CÓDIGO válido.");
+        }
+        
+        if(e.getDesc().equals("")) {
+            throw new Exception("Informe uma DESCRIÇÃO válida.");
+        }
+    }
+    
     private final DadosEstado iDE;
     
     public NegocioEstado () {
         this.iDE = new DadosEstado();
     }
     
-    public void atualizarEstado(Estado s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void atualizarEstado(Estado e) throws Exception {
+        validarAtualizarEstado(e);
+        iDE.atualizarEstado(e);
     }
 
-    public List<Estado> listarEstado(Estado filtro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Estado> listarEstado(Estado filtro) throws Exception {
+        return iDE.listarEstado(filtro);
     }    
 }

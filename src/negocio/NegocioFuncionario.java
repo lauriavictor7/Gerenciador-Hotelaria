@@ -15,25 +15,86 @@ import java.util.List;
  */
 public class NegocioFuncionario {
     
+    private void validarCadastrarFuncionario(Funcionario f) throws Exception {
+        if(f.getCpf().trim().length() < 14) {
+            throw new Exception("Por favor, informar o CPF.");
+        }
+        
+        if(f.getCpf().equals("   .   .   -  ")) {
+            throw new Exception("Por favor, informar o CPF");
+        }
+        
+        if(f.getNome().trim().equals("")) {
+            throw new Exception("Por favor, informar o NOME.");
+        }
+        
+        if(f.getDataNasc().trim().length() < 10) {
+            throw new Exception("Por favor, informar DATA DE NASCIMENTO.");
+        } 
+        
+        if(f.getCargo().equals("") || f.getCargo() == null) {
+            throw new Exception("Por favor, informar CARGO.");
+        }
+        
+        if(f.getSalario() <= 0) {
+            throw new Exception("Por favor, informar SALÁRIO.");
+        }
+        
+        if(f.getEndereco() == null) {
+            throw new Exception("Por favor, informar o ENDEREÇO.");
+        }
+    }
+    
+    private void validarAtualizarFuncionario(Funcionario f) throws Exception {
+        if(f.getDataNasc().trim().length() < 10) {
+            throw new Exception("Por favor, informar DATA DE NASCIMENTO.");
+        } 
+        
+        if(f.getCargo().equals("") || f.getCargo() == null) {
+            throw new Exception("Por favor, informar CARGO.");
+        }
+        
+        if(f.getSalario() <= 0) {
+            throw new Exception("Por favor, informar SALÁRIO.");
+        }
+        
+        if(f.getEndereco() == null) {
+            throw new Exception("Por favor, informar o ENDEREÇO.");
+        }        
+    }
+    
+    private void validarRemoverFuncionario(Funcionario f) throws Exception {
+        if(f.getCpf().trim().length() < 14) {
+            throw new Exception("Por favor, informar o CPF.");
+        }
+        
+        if(f.getCpf().equals("   .   .   -  ")) {
+            throw new Exception("Por favor, informar o CPF");
+        }        
+    }
+    
     private final DadosFuncionario iDF;
     
     public NegocioFuncionario () {
         this.iDF = new DadosFuncionario();
     }
     
-    public void cadastrarFuncionario(Funcionario f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void cadastrarFuncionario(Funcionario f) throws Exception {
+        validarCadastrarFuncionario(f);
+        iDF.cadastrarFuncionario(f);
     }
     
-    public void atualizarFuncionario(Funcionario f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void atualizarFuncionario(Funcionario f) throws Exception {
+        validarAtualizarFuncionario(f);
+        iDF.atualizarFuncionario(f);
     }
     
-    public void removerFuncionario(Funcionario f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void removerFuncionario(Funcionario f) throws Exception {
+        validarRemoverFuncionario(f);
+        iDF.removerFuncionario(f);
     }
     
-    public List<Funcionario> listarHospede(Funcionario filtro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Funcionario> listarHospede(Funcionario filtro) throws Exception {
+        return iDF.listarFuncionario(filtro);
     }
 }
