@@ -5,22 +5,29 @@
  */
 package basicas;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author lauriavictor
  */
+
+@Entity
 public class Servico {
     
-    private int cod;
+    @Id
+    private int id;
     private String desc;
     private double valor;
 
-    public int getCod() {
-        return cod;
+    public int getId() {
+        return id;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDesc() {

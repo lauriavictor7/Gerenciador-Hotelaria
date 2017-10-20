@@ -11,7 +11,6 @@ import javax.persistence.Entity;
  *
  * @author lauriavictor
  */
-@Entity
 public class Quarto {
     
     private int num;

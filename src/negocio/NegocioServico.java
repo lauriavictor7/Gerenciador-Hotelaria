@@ -16,7 +16,7 @@ import java.util.List;
 public class NegocioServico {
     
     private void validarCadastrarServico(Servico s) throws Exception {
-        if (s.getCod() <= 0) {
+        if (s.getId() <= 0) {
             throw new Exception("Por favor, informar um CÓDIGO DE SERVIÇO válido.");
         }
 
@@ -56,13 +56,13 @@ public class NegocioServico {
     }
     
     private void validarRemoverServico(Servico s) throws Exception {
-        if (s.getCod() <= 0) {
+        if (s.getId() <= 0) {
             throw new Exception("Por favor, informar um CÓDIGO DE SERVIÇO válido.");
         }        
     }
     
      private void validarPesquisarServico(Servico s) throws Exception {
-        if (s.getCod() <= 0) {
+        if (s.getId() <= 0) {
             throw new Exception("Por favor, informar um CÓDIGO DE SERVIÇO válido.");
         }        
     }

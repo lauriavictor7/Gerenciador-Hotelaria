@@ -7,6 +7,10 @@ package dados;
 
 import basicas.Servico;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -14,9 +18,24 @@ import java.util.List;
  */
 public class DadosServico implements IDadosServico {
 
+    private EntityManager em;
+    
+    public DadosServico() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia");
+        em = emf.createEntityManager();
+    }    
+    
     @Override
     public void cadastrarServico(Servico s) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        EntityTransaction tx = em.getTransaction();
+        
+        try {
+           tx.begin();
+           em.persist(s);
+           tx.commit();
+        } catch (Exception e) {
+           tx.rollback();
+        }
     }
 
     @Override
