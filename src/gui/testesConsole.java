@@ -25,13 +25,13 @@ public class testesConsole {
      */
     public static void main(String[] args) {
         
-        /*
+        
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia");
         EntityManager em = emf.createEntityManager();
         EntityTransaction et = em.getTransaction();
         et.begin();
-        */
         
+        /*
         try {
             Servico s = new Servico();
             Fachada f = new Fachada();
@@ -45,7 +45,7 @@ public class testesConsole {
         } catch (Exception ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
-        
+        */
     }
     
 }

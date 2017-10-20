@@ -5,21 +5,31 @@
  */
 package basicas;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author lauriavictor
  */
+
+@Entity
 public class Estado {
     
-    private int cod;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String desc;
 
-    public int getCod() {
-        return cod;
+    public int getId() {
+        return id;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDesc() {

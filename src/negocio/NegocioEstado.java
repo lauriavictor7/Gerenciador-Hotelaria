@@ -16,7 +16,7 @@ import java.util.List;
 public class NegocioEstado {
     
     private void validarAtualizarEstado(Estado e) throws Exception {
-        if(e.getCod() <= 0) {
+        if(e.getId() <= 0) {
             throw new Exception("Informe um CÓDIGO válido.");
         }
         

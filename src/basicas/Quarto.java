@@ -6,13 +6,20 @@
 package basicas;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author lauriavictor
  */
+
+@Entity
 public class Quarto {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int num;
     private String descricao;
     private int andar;

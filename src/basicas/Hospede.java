@@ -6,13 +6,14 @@
 package basicas;
 
 import java.util.List;
+import javax.persistence.Entity;
 
 /**
  *
  * @author lauriavictor
  */
 
-
+@Entity
 public class Hospede extends Pessoa {
     
     private List<Hospede> detalhes;

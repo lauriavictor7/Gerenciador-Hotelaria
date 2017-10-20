@@ -14,29 +14,40 @@ import java.util.List;
  */
 public class Reserva {
     
-    private int cod;
+    private int id;
     private String dt;
     private int periodo;
+    
+    //OneToOne?
     private Hospede hospede;
+    
+    //OneToMany?
     private Quarto quarto;
+    
+    //OneToOne?
     private Ocupacao ocupacao;
-    private Estado situacao;
+    
+    //OneToOne?
+    private Estado estado;
+    
+    //Faz sentido listar serviços em uma reserva? Visto que na reserva o hospede
+    //somente selecionou um perido pra ficar.
     private List<Servico> servico;
     
     public Reserva () {
         this.hospede = new Hospede();
         this.quarto = new Quarto();
         this.ocupacao = new Ocupacao();
-        this.situacao = new Estado();
+        this.estado = new Estado();
         this.servico = new ArrayList<>();
     }
 
-    public int getCod() {
-        return cod;
+    public int getId() {
+        return id;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDt() {
@@ -79,12 +90,12 @@ public class Reserva {
         this.ocupacao = ocupacao;
     }    
 
-    public Estado getSituacao() {
-        return situacao;
+    public Estado getEstado() {
+        return estado;
     }
 
-    public void setSituacao(Estado situacao) {
-        this.situacao = situacao;
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 
     public List<Servico> getServico() {

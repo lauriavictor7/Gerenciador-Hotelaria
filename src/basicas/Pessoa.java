@@ -5,12 +5,24 @@
  */
 package basicas;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 /**
  *
  * @author lauriavictor
  */
+
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Pessoa {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
     private String dataNasc;
     private String nome;

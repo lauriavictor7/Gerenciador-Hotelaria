@@ -7,27 +7,41 @@ package basicas;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author lauriavictor
  */
+
+@Entity
 public class Ocupacao {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String dtEntrada;
     private String dtSaida;
     private String hrEntrada;
     private String hrSaida;
     private float valorDiaria;
+    
+    //OneToOne?
     private Quarto quarto;
+    
+    //OneToOne?
     private Hospede hospede;
-    private List<Servico> servico;
+    
+    //ManyToMany
+    private List<Servico> listaServico;
     
     public Ocupacao () {
         this.hospede = new Hospede();
         this.quarto = new Quarto();
-        this.servico = new ArrayList<>();
+        this.listaServico = new ArrayList<>();
     }
 
     public int getId() {
@@ -92,13 +106,13 @@ public class Ocupacao {
 
     public void setHospede(Hospede hospede) {
         this.hospede = hospede;
+    }     
+
+    public List<Servico> getListaServico() {
+        return listaServico;
     }
 
-    public List<Servico> getServico() {
-        return servico;
+    public void setListaServico(List<Servico> listaServico) {
+        this.listaServico = listaServico;
     }
-
-    public void setServico(List<Servico> servico) {
-        this.servico = servico;
-    }       
 }

@@ -5,8 +5,10 @@
  */
 package basicas;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -18,9 +20,13 @@ import javax.persistence.Id;
 public class Servico {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String desc;
     private double valor;
+    
+    //ManyToMany
+    private List<Ocupacao> listaOcupacao;
 
     public int getId() {
         return id;
@@ -44,6 +50,14 @@ public class Servico {
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public List<Ocupacao> getListaOcupacao() {
+        return listaOcupacao;
+    }
+
+    public void setListaOcupacao(List<Ocupacao> listaOcupacao) {
+        this.listaOcupacao = listaOcupacao;
     }
     
 }

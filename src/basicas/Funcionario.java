@@ -5,14 +5,27 @@
  */
 package basicas;
 
+
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+
+
 /**
  *
  * @author lauriavictor
  */
+
+@Entity
 public class Funcionario extends Pessoa {
     
     private double salario;
     private String cargo;
+    
+    @OneToOne(mappedBy = "funcionario")
+    @Cascade(CascadeType.ALL)
     private Endereco endereco;
 
     public double getSalario() {

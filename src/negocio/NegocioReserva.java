@@ -59,7 +59,7 @@ public class NegocioReserva {
     }
     
     private void validarRemoverReserva(Reserva r) throws Exception {
-        if (r.getCod() <= 0) {
+        if (r.getId() <= 0) {
             throw new Exception("Reserva não encontrada.");
         }
     }
