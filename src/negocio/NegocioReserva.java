@@ -29,7 +29,7 @@ public class NegocioReserva {
             throw new Exception("Por favor, informe a DATA.");
         }
         
-        if(r.getQuarto().getNum() <= 0) {
+        if(r.getListaQuarto().isEmpty()) {
             throw new Exception("Por favor, informe o QUARTO.");
         }
         
@@ -53,7 +53,7 @@ public class NegocioReserva {
             throw new Exception("Por favor, informe a DATA.");
         }
         
-        if(r.getQuarto().getNum() <= 0) {
+        if(r.getListaQuarto().isEmpty()) {
             throw new Exception("Por favor, informe o QUARTO.");
         }        
     }

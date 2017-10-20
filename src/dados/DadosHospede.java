@@ -7,6 +7,10 @@ package dados;
 
 import basicas.Hospede;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -14,9 +18,24 @@ import java.util.List;
  */
 public class DadosHospede implements IDadosHospede {
     
+    private EntityManager em;
+    
+    public DadosHospede() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistencia");
+        em = emf.createEntityManager();        
+    }
+    
     @Override
     public void cadastrarHospede(Hospede h) throws Exception {
-        throw new Exception("Erro ao cadastrar hóspede.");
+        EntityTransaction tx = em.getTransaction();
+        
+        try {
+           tx.begin();
+           em.persist(h);
+           tx.commit();
+        } catch (Exception e) {
+           tx.rollback();
+        }
     }
 
     @Override

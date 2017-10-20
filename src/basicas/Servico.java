@@ -10,6 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -25,7 +28,10 @@ public class Servico {
     private String desc;
     private double valor;
     
-    //ManyToMany
+    @ManyToMany
+    @JoinTable(name = "OcupacaoServico",
+               joinColumns = {@JoinColumn(name = "idServico")},
+               inverseJoinColumns = {@JoinColumn(name = "idOcupacao")})
     private List<Ocupacao> listaOcupacao;
 
     public int getId() {

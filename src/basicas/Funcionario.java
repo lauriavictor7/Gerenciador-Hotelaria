@@ -7,6 +7,7 @@ package basicas;
 
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -24,8 +25,8 @@ public class Funcionario extends Pessoa {
     private double salario;
     private String cargo;
     
-    @OneToOne(mappedBy = "funcionario")
-    @Cascade(CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "idEndereco")
     private Endereco endereco;
 
     public double getSalario() {

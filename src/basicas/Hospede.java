@@ -16,13 +16,22 @@ import javax.persistence.Entity;
 @Entity
 public class Hospede extends Pessoa {
     
-    private List<Hospede> detalhes;
+    private String email;
+    private String telefone;
 
-    public List<Hospede> getDetalhes() {
-        return detalhes;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDetalhes(List<Hospede> detalhes) {
-        this.detalhes = detalhes;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

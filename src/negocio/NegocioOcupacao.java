@@ -37,13 +37,9 @@ public class NegocioOcupacao {
         }
         
         if (o.getQuarto().getNum() <= 0) {
-            throw new Exception("Por favor, informe um QAURTO válido.");
+            throw new Exception("Por favor, informe um QUARTO válido.");
         }
         
-        if (o.getQuarto().getNum() == o.getQuarto().getNum()) {
-            throw new Exception("Quarto já ocupado.");
-        }
-
         if (o.getValorDiaria() <= 0) {
             throw new Exception("Por favor, informe um VALOR DE DIÁRIA válido.");
         }
@@ -67,7 +63,7 @@ public class NegocioOcupacao {
         }
         
         if (o.getQuarto().getNum() <= 0) {
-            throw new Exception("Por favor, informe um QAURTO válido.");
+            throw new Exception("Por favor, informe um QUARTO válido.");
         }
     }
     

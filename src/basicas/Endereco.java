@@ -27,10 +27,6 @@ public class Endereco {
     private String num;
     private String bairro;
     private String cep;
-    
-    @OneToOne
-    @JoinColumn(name = "idFuncionario")
-    private Funcionario funcionario;
 
     public String getLogradouro() {
         return logradouro;
@@ -70,13 +66,5 @@ public class Endereco {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
     }
 }

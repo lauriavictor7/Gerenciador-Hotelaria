@@ -5,9 +5,8 @@
  */
 package gui;
 
+import basicas.Hospede;
 import basicas.Servico;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -33,14 +32,17 @@ public class testesConsole {
         
         /*
         try {
-            Servico s = new Servico();
+            Hospede h = new Hospede();
             Fachada f = new Fachada();
-        
-            s.setDesc("Cerveja");
-            s.setValor(4);
-            s.setId(1);
-                    
-            f.cadastrarServico(s);
+            
+            h.setCpf("107.079.914-98");
+            h.setDataNasc("20/11/1993");
+            h.setEmail("victor7lauria@live.com");
+            h.setNome("Victor Lauria");
+            h.setSexo("Masculino");
+            h.setTelefone("(81) 9.9768-2838");
+            
+            f.cadastrarHospede(h);
             System.out.println("Sucesso!");
         } catch (Exception ex) {
             System.out.println("Erro: " + ex.getMessage());

@@ -11,6 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -29,13 +33,18 @@ public class Ocupacao {
     private String hrSaida;
     private float valorDiaria;
     
-    //OneToOne?
+    @OneToOne
+    @JoinColumn(name = "idQuarto")
     private Quarto quarto;
     
-    //OneToOne?
+    @OneToOne
+    @JoinColumn(name = "idHospede")
     private Hospede hospede;
     
-    //ManyToMany
+    @ManyToMany
+    @JoinTable(name = "OcupacaoServico",
+            joinColumns = {@JoinColumn(name = "idOcupacao")},
+            inverseJoinColumns = {@JoinColumn(name = "idServico")})
     private List<Servico> listaServico;
     
     public Ocupacao () {
@@ -92,18 +101,10 @@ public class Ocupacao {
         this.valorDiaria = valorDiaria;
     }
 
-    public Quarto getQuarto() {
-        return quarto;
-    }
-
-    public void setQuarto(Quarto quarto) {
-        this.quarto = quarto;
-    }
-
     public Hospede getHospede() {
         return hospede;
-    }
-
+    }    
+    
     public void setHospede(Hospede hospede) {
         this.hospede = hospede;
     }     
@@ -114,5 +115,13 @@ public class Ocupacao {
 
     public void setListaServico(List<Servico> listaServico) {
         this.listaServico = listaServico;
+    }
+
+    public Quarto getQuarto() {
+        return quarto;
+    }
+
+    public void setQuarto(Quarto quarto) {
+        this.quarto = quarto;
     }
 }

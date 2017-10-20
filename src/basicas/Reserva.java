@@ -7,39 +7,48 @@ package basicas;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author lauriavictor
  */
+
+@Entity
 public class Reserva {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String dt;
     private int periodo;
     
-    //OneToOne?
+    @OneToOne
+    @JoinColumn(name = "idHospede")
     private Hospede hospede;
     
-    //OneToMany?
-    private Quarto quarto;
+    @OneToMany(mappedBy = "reserva")
+    private List<Quarto> listaQuarto;
     
-    //OneToOne?
+    @OneToOne
+    @JoinColumn(name = "idOcupacao")        
     private Ocupacao ocupacao;
     
-    //OneToOne?
+    @OneToOne
+    @JoinColumn(name = "idEstado")
     private Estado estado;
-    
-    //Faz sentido listar serviços em uma reserva? Visto que na reserva o hospede
-    //somente selecionou um perido pra ficar.
-    private List<Servico> servico;
     
     public Reserva () {
         this.hospede = new Hospede();
-        this.quarto = new Quarto();
+        this.listaQuarto = new ArrayList<>();
         this.ocupacao = new Ocupacao();
         this.estado = new Estado();
-        this.servico = new ArrayList<>();
     }
 
     public int getId() {
@@ -74,14 +83,6 @@ public class Reserva {
         this.hospede = hospede;
     }
 
-    public Quarto getQuarto() {
-        return quarto;
-    }
-
-    public void setQuarto(Quarto quarto) {
-        this.quarto = quarto;
-    }
-
     public Ocupacao getOcupacao() {
         return ocupacao;
     }
@@ -98,11 +99,11 @@ public class Reserva {
         this.estado = estado;
     }
 
-    public List<Servico> getServico() {
-        return servico;
+    public List<Quarto> getListaQuarto() {
+        return listaQuarto;
     }
 
-    public void setServico(List<Servico> servico) {
-        this.servico = servico;
+    public void setListaQuarto(List<Quarto> listaQuarto) {
+        this.listaQuarto = listaQuarto;
     }
 }

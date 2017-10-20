@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -24,6 +26,10 @@ public class Quarto {
     private String descricao;
     private int andar;
     private double preco;
+    
+    @ManyToOne
+    @JoinColumn(name = "idReserva")
+    private Reserva reserva;
 
     public int getNum() {
         return num;
@@ -56,4 +62,12 @@ public class Quarto {
     public void setPreco(double preco) {
         this.preco = preco;
     }   
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
 }

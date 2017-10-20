@@ -31,6 +31,14 @@ public class NegocioHospede {
         if(h.getDataNasc().trim().length() < 10) {
             throw new Exception("Por favor, informar DATA DE NASCIMENTO.");
         }
+        
+        if(h.getEmail().trim().length() < 5) {
+            throw new Exception("Por favor, informar E-MAIL");
+        }
+        
+        if(h.getTelefone().trim().length() < 16) {
+            throw new Exception("Por favor, informar TELEFONE.");
+        } 
     }
     
     private void validarAtualizarHospede(Hospede h) throws Exception {
@@ -41,6 +49,14 @@ public class NegocioHospede {
         if(h.getDataNasc().trim().length() < 10) {
             throw new Exception("Por favor, informar DATA DE NASCIMENTO.");
         }
+        
+        if(h.getEmail().trim().length() < 5) {
+            throw new Exception("Por favor, informar E-MAIL");
+        }
+        
+        if(h.getTelefone().trim().length() < 16) {
+            throw new Exception("Por favor, informar TELEFONE.");
+        }       
     }
     
     private void validarRemoverHospede(Hospede h) throws Exception {
