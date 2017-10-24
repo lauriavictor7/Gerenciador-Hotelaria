@@ -5,7 +5,8 @@
  */
 package basicas;
 
-import java.util.List;
+import java.util.Calendar;
+import java.util.Date;
 import javax.persistence.Entity;
 
 /**
@@ -15,6 +16,19 @@ import javax.persistence.Entity;
 
 @Entity
 public class Hospede extends Pessoa {
+    
+    public Hospede() {
+        
+    }
+    
+    public Hospede(Integer codigo, Calendar dataUltimaAtualizacao, Calendar dataNasc, String nome,
+                                                               String sexo, String cpf) {
+        super(codigo, dataUltimaAtualizacao, dataNasc, nome, sexo, cpf);
+    }
+    
+    public Hospede(Calendar dataNasc, String nome, String sexo, String cpf) {
+        super(dataNasc, nome, sexo, cpf);
+    } 
     
     private String email;
     private String telefone;

@@ -16,8 +16,7 @@ public interface IDadosHospede {
     
     void cadastrarHospede(Hospede h) throws Exception;
     void atualizarHospede(Hospede h) throws Exception;
-    void removerHosptede(Hospede h) throws Exception;
+    void removerHospede(Hospede h) throws Exception;
     List<Hospede> listarHospede (Hospede filtro) throws Exception;
-    Hospede pesquisarHospede (String cpf) throws Exception;
-    Hospede detalhesHospede (Hospede h) throws Exception;  
+    Hospede pesquisarHospede (String cpf) throws Exception; 
 }

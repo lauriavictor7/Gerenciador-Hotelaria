@@ -27,11 +27,11 @@ public class NegocioHospede {
         if(h.getNome().trim().equals("")) {
             throw new Exception("Por favor, informar o NOME.");
         }
-        
+        /*
         if(h.getDataNasc().trim().length() < 10) {
             throw new Exception("Por favor, informar DATA DE NASCIMENTO.");
         }
-        
+        */
         if(h.getEmail().trim().length() < 5) {
             throw new Exception("Por favor, informar E-MAIL");
         }
@@ -45,11 +45,11 @@ public class NegocioHospede {
         if(h.getNome().trim().equals("")) {
             throw new Exception("Por favor, informar o NOME.");
         }
-        
+        /*
         if(h.getDataNasc().trim().length() < 10) {
             throw new Exception("Por favor, informar DATA DE NASCIMENTO.");
         }
-        
+        */
         if(h.getEmail().trim().length() < 5) {
             throw new Exception("Por favor, informar E-MAIL");
         }
@@ -90,7 +90,7 @@ public class NegocioHospede {
     public NegocioHospede () {
         this.iDH = new DadosHospede();
     }
-
+    
     public void cadastrarHospede(Hospede h) throws Exception {
         validarCadastrarHospede(h);
         iDH.cadastrarHospede(h);
@@ -101,9 +101,9 @@ public class NegocioHospede {
         iDH.atualizarHospede(h);
     }
 
-    public void removerHosptede(Hospede h) throws Exception {
+    public void removerHospede(Hospede h) throws Exception {
         validarRemoverHospede(h);
-        iDH.removerHosptede(h);
+        iDH.removerHospede(h);
     }
 
     public List<Hospede> listarHospede(Hospede filtro) throws Exception {
@@ -113,10 +113,6 @@ public class NegocioHospede {
     public Hospede pesquisarHospede(String cpf) throws Exception {
         validarPesquisarHospede(cpf);
         return iDH.pesquisarHospede(cpf);
-    }
-
-    public Hospede detalhesHospede(Hospede h) throws Exception {
-        return iDH.detalhesHospede(h);
     }
     
 }

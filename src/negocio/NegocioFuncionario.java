@@ -27,11 +27,11 @@ public class NegocioFuncionario {
         if(f.getNome().trim().equals("")) {
             throw new Exception("Por favor, informar o NOME.");
         }
-        
+        /*
         if(f.getDataNasc().trim().length() < 10) {
             throw new Exception("Por favor, informar DATA DE NASCIMENTO.");
         } 
-        
+        */
         if(f.getCargo().equals("") || f.getCargo() == null) {
             throw new Exception("Por favor, informar CARGO.");
         }
@@ -46,10 +46,11 @@ public class NegocioFuncionario {
     }
     
     private void validarAtualizarFuncionario(Funcionario f) throws Exception {
+        /*
         if(f.getDataNasc().trim().length() < 10) {
             throw new Exception("Por favor, informar DATA DE NASCIMENTO.");
         } 
-        
+        */
         if(f.getCargo().equals("") || f.getCargo() == null) {
             throw new Exception("Por favor, informar CARGO.");
         }

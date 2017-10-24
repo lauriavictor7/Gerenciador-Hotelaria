@@ -5,6 +5,7 @@
  */
 package negocio;
 
+import basicas.Endereco;
 import basicas.Funcionario;
 import basicas.Hospede;
 import basicas.Ocupacao;
@@ -20,12 +21,13 @@ import dados.IDadosReserva;
 import dados.IDadosServico;
 import java.util.List;
 import dados.IDadosEstado;
+import dados.IDadosEndereco;
 
 /**
  *
  * @author lauriavictor
  */
-public class Fachada implements IDadosHospede, IDadosFuncionario, IDadosReserva, IDadosQuarto, IDadosOcupacao , IDadosServico, IDadosEstado  {
+public class Fachada implements IDadosHospede, IDadosFuncionario, IDadosReserva, IDadosQuarto, IDadosOcupacao , IDadosServico, IDadosEstado, IDadosEndereco  {
 
     private final NegocioHospede nh;
     private final NegocioFuncionario nf;
@@ -56,8 +58,8 @@ public class Fachada implements IDadosHospede, IDadosFuncionario, IDadosReserva,
     }
 
     @Override
-    public void removerHosptede(Hospede h) throws Exception {
-        this.nh.removerHosptede(h);
+    public void removerHospede(Hospede h) throws Exception {
+        this.nh.removerHospede(h);
     }    
     
     @Override
@@ -71,11 +73,6 @@ public class Fachada implements IDadosHospede, IDadosFuncionario, IDadosReserva,
         return this.nh.pesquisarHospede(cpf);
     }
     
-    @Override
-    public Hospede detalhesHospede(Hospede h) throws Exception {
-        return this.nh.detalhesHospede(h);
-    }
-
     @Override
     public void cadastrarFuncionario(Funcionario f) throws Exception {
         this.nf.cadastrarFuncionario(f);
@@ -204,6 +201,21 @@ public class Fachada implements IDadosHospede, IDadosFuncionario, IDadosReserva,
     @Override
     public List<Estado> listarEstado(Estado filtro) throws Exception {
         return this.ne.listarEstado(filtro);
+    }
+
+    @Override
+    public void cadastrarEndereco(Endereco e) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void atualizarEndereco(Endereco e) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void removerEndereco(Endereco e) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

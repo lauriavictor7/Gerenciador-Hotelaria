@@ -35,31 +35,43 @@ public class DadosHospede implements IDadosHospede {
            tx.commit();
         } catch (Exception e) {
            tx.rollback();
+           System.out.println("1");
         }
     }
 
     @Override
     public void atualizarHospede(Hospede h) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        EntityTransaction tx = em.getTransaction();
+        
+        try {
+           tx.begin();
+           em.merge(h);
+           tx.commit();
+        } catch (Exception e) {
+           tx.rollback();
+        }        
     }
 
     @Override
-    public void removerHosptede(Hospede h) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void removerHospede(Hospede h) throws Exception {
+        EntityTransaction tx = em.getTransaction();
+        
+        try {
+           tx.begin();
+           em.remove(h);
+           tx.commit();
+        } catch (Exception e) {
+           tx.rollback();
+        }
     }
-
+    
     @Override
     public List<Hospede> listarHospede(Hospede filtro) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     @Override
     public Hospede pesquisarHospede(String cpf) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Hospede detalhesHospede(Hospede h) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }  
+        return em.find(Hospede.class, cpf);
+    } 
 }

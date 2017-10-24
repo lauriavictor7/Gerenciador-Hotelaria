@@ -5,43 +5,51 @@
  */
 package basicas;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import java.util.Calendar;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author lauriavictor
  */
 
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class Pessoa {
+@MappedSuperclass
+public abstract class Pessoa extends ObjetoSistema {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
-    private String dataNasc;
+    public Pessoa() {
+        
+    }
+    
+    public Pessoa(Integer codigo, Calendar dataUltimaAtualizacao, Calendar dataNasc, String nome,
+                                                              String sexo, String cpf) {
+        super(codigo, dataUltimaAtualizacao);
+        this.dataNasc = dataNasc;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.cpf = cpf;
+    }
+    
+    public Pessoa(Calendar dataNasc, String nome, String sexo, String cpf) {
+        super();
+        this.dataNasc = dataNasc;
+        this.nome = nome;
+        this.sexo = sexo;
+        this.cpf = cpf;
+    }
+    
+    @Temporal(TemporalType.DATE)
+    private Calendar dataNasc;
     private String nome;
     private String sexo;
     private String cpf;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDataNasc() {
+    public Calendar getDataNasc() {
         return dataNasc;
     }
 
-    public void setDataNasc(String dataNasc) {
+    public void setDataNasc(Calendar dataNasc) {
         this.dataNasc = dataNasc;
     }
 
@@ -67,6 +75,5 @@ public abstract class Pessoa {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-    
+    }   
 }
